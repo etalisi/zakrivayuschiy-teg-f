@@ -375,7 +375,7 @@
               onclick="window['dialog-id'].showModal()" 
               aria-controls="dialog-id">
           <svg class="floppy footer__image" viewBox="0 0 21 21">
-            <use href="./svg/floppy.svg#floppy">
+            <use href="./svg/floppy.svg#floppy"/>
           </svg>
           <span class="button__text">Сохранить на память</span>
       </button>
@@ -384,11 +384,15 @@
         <div class="dialog_wrap">
           <div class="dialog_text">
             <svg class="floppy dialog__image" viewBox="0 0 21 21">
-              <use href="./svg/floppy.svg#floppy">
+              <use href="./svg/floppy.svg#floppy"/>
             </svg>
             <h2 class="dialog__title">Вставьте дискету, чтобы продолжить</h2>
           </div>
-          <button class="dialog__button button" type="button" onclick="window['dialog-id'].close()"><span class="button__text">ок</span></button>
+          <form method="dialog" class="dialog__form">
+            <button class="dialog__button button">
+                <span class="button__text">ок</span>
+            </button>
+          </form> 
         </div>
       </dialog>
 

@@ -183,10 +183,12 @@ button:hover {
 }
 
 .sprint_2_1 {
-  filter: saturate(150%) contrast(120%);
+  filter: hue-rotate(20deg);
 }
 
 .sprint_2_2 {
+  
+  filter: saturate(150%) contrast(120%);
 }
 
 .sprint_3_1 {
@@ -416,7 +418,6 @@ button:hover {
   block-size: 191px;
   inline-size: min(353px, 100vw);
   padding: 0;
-  border: none;
   background-color: var(--bg-color);
   color: var(--accent-color);
   border: 2px solid var(--accent-color);
@@ -466,11 +467,15 @@ dialog[open] {
   font-weight: normal;
 }
 
+.dialog__form {
+  inline-size: min(100%, 289px);
+}
+
 .dialog__button {
   block-size: 34px;
-  inline-size: min(100%, 289px);
   text-transform: uppercase;
   padding: 0;
+  inline-size: 100%;
 }
 
 dialog::backdrop {
