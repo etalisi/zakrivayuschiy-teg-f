@@ -4,3 +4,105 @@
 ✦ theme-light — класс светлой темы
 ✦ не забудьте описать стили для изменения темы через медизапрос пользовательских предпочтений
 */
+
+:root.theme-light {
+  --bg-color: rgb(245, 245, 245);
+  --accent-color: rgb(0, 0, 0);
+  --font-wgth: 400;
+  --title-font-wgth: 700;
+  --fill-color: #f00;
+  --countur-color: #000;
+}
+
+:root.theme-light .page {
+  --bg-image: repeating-linear-gradient(
+      to bottom,
+      #d3d3d3 0px 2px,
+      transparent 2px 4px
+    ),
+    repeating-linear-gradient(to right, #d3d3d3 0px 2px, transparent 2px 4px),
+    linear-gradient(#e7e7e7 0 0.01%, #e7e7e7 0.01%, #1a1a1a);
+}
+
+/**Theme dark*/
+
+:root.theme-dark {
+  --bg-color: rgb(0, 0, 0);
+  --accent-color: rgb(0, 204, 20);
+  --font-wgth: 465;
+  --title-font-wgth: 785;
+  --countur-color: rgb(0, 204, 20);
+}
+
+:root.theme-dark .page {
+  --bg-image: repeating-linear-gradient(
+      to bottom,
+      #000 0px 2px,
+      transparent 2px 4px
+    ),
+    repeating-linear-gradient(to right, #000 0px 2px, transparent 2px 4px),
+    linear-gradient(#007f0c, #004306);
+}
+
+:root.theme-dark :is(.footer__button, .button__text) {
+  color: var(--accent-color);
+}
+
+/**Prefers-color-scheme*/
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg-color: #000;
+    --bg-image: repeating-linear-gradient(
+        to bottom,
+        #000 0px 2px,
+        transparent 2px 4px
+      ),
+      repeating-linear-gradient(to right, #000 0px 2px, transparent 2px 4px),
+      linear-gradient(#007f0c, #004306);
+    --accent-color: rgb(0, 204, 20);
+    --font-wgth: 465;
+    --title-font-wgth: 785;
+    --countur-color: rgb(0, 204, 20);
+  }
+
+  .page {
+    --bg-image: repeating-linear-gradient(
+        to bottom,
+        #000 0px 2px,
+        transparent 2px 4px
+      ),
+      repeating-linear-gradient(to right, #000 0px 2px, transparent 2px 4px),
+      linear-gradient(#007f0c, #004306);
+  }
+
+  .button__text,
+  .footer__button {
+    color: var(--accent-color);
+  }
+
+  /**Theme light*/
+
+  :root.theme-light {
+    --bg-color: rgb(245, 245, 245);
+    --accent-color: rgb(0, 0, 0);
+    --font-wgth: 400;
+    --title-font-wgth: 700;
+    --fill-color: #f00;
+    --countur-color: #000;
+  }
+
+  :root.theme-light .page {
+    --bg-image: repeating-linear-gradient(
+        to bottom,
+        #d3d3d3 0px 2px,
+        transparent 2px 4px
+      ),
+      repeating-linear-gradient(to right, #d3d3d3 0px 2px, transparent 2px 4px),
+      linear-gradient(#e7e7e7 0 0.01%, #e7e7e7 0.01%, #1a1a1a);
+  }
+
+  :root.theme-light :is(.button__text, .footer__button) {
+    color: var(--bg-color);
+  }
+}

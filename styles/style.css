@@ -13,8 +13,466 @@
 Кроме этого, не меняйте HTML переключателя тем. Его разметка также гарантирует работу своего скрипта.
 
 */
+button:hover {
+  cursor: pointer;
+}
 
 .page {
   min-inline-size: 320px;
   min-block-size: 100dvb;
+  font-family: var(--main-font), sans-serif;
+  font-size: 18px;
+  font-variation-settings: "wght" var(--font-wgth);
+  background-color: var(--bg-color);
+  color: var(--accent-color);
+  background-image: var(--bg-image);
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+.inline-size {
+  inline-size: var(--inline-size);
+  margin: auto;
+}
+
+/**Header*/
+
+.header {
+  background-color: var(--bg-color);
+  margin-block: 100px;
+  font-family: var(--accent-font), fantasy;
+  border: 2px var(--accent-color) solid;
+  padding-block-start: clamp(7.5rem, 1.502vw + 7.148rem, 8.5rem);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 21px;
+}
+
+.header__title {
+  font-size: clamp(3.0625rem, 2.7104rem + 1.5023vw, 4.0625rem);
+}
+
+.header__subtitle {
+  font-size: clamp(0.875rem, 0.6769rem + 0.8451vw, 1.4375rem);
+  text-transform: uppercase;
+}
+
+.theme-menu {
+  padding-block-end: 23px;
+}
+
+.theme-menu__list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  justify-content: center;
+  align-items: start;
+  padding-inline-start: 15px;
+}
+
+.theme-menu__button {
+  background-color: transparent;
+  border: none;
+  text-transform: uppercase;
+  font-size: 14px;
+  transition: opacity 0.3s ease;
+  position: relative;
+}
+
+.theme-menu__button:hover,
+.theme-menu__button:focus-visible {
+  opacity: 0.6;
+}
+
+.theme-menu__button:focus {
+  outline: none;
+}
+
+.theme-menu__button::after {
+  content: "";
+  position: absolute;
+  display: block;
+  background-color: var(--accent-color);
+  transition: transform 0.3s ease;
+  inline-size: 85%;
+  transform: scaleX(0);
+  transform-origin: left;
+  block-size: 2px;
+}
+
+.theme-menu__button:focus-visible::after {
+  transform: scaleX(1);
+}
+
+.theme-menu__button:disabled {
+  opacity: 0.6;
+  pointer-events: none;
+  position: relative;
+}
+
+.theme-menu__button:disabled::before {
+  content: "\25B6";
+  position: absolute;
+  margin-left: -20px;
+  animation-name: disabled-button;
+  animation-iteration-count: infinite;
+  animation-duration: 0.5s;
+  animation-timing-function: ease-in-out;
+  animation-direction: alternate-reverse;
+}
+
+/**Main*/
+
+.main {
+  inline-size: var(--inline-size);
+  margin: auto;
+}
+
+/**Section*/
+
+.section {
+  background-color: var(--bg-color);
+  border: 2px var(--accent-color) solid;
+}
+
+.section + .section {
+  margin-block-start: 50px;
+}
+
+.section__title {
+  font-variation-settings: "wght" var(--title-font-wgth);
+  font-size: inherit;
+  font-style: inherit;
+  line-height: 22px;
+  padding-block: 3px;
+  padding-inline: 10px;
+}
+
+.image__wrap {
+  position: relative;
+  border-block-start: 2px var(--accent-color) solid;
+  border-block-end: 2px var(--accent-color) solid;
+}
+
+.image {
+  object-fit: cover;
+  object-position: right center;
+  block-size: clamp(23.19rem, 16.0386rem + 30.5127vw, 43.8rem);
+  width: 100%;
+  display: block;
+}
+
+.sprint_0 {
+  filter: brightness(0.1);
+  transition: 1s ease;
+}
+
+.sprint_0:hover {
+  filter: brightness(100%);
+}
+
+.sprint_1_1 {
+  filter: sepia(50%);
+}
+
+.sprint_1_2 {
+  filter: saturate(158%);
+}
+
+.sprint_2_1 {
+  filter: saturate(150%) contrast(120%);
+}
+
+.sprint_2_2 {
+}
+
+.sprint_3_1 {
+  filter: contrast(130%);
+}
+
+.sprint_3_2 {
+  filter: grayscale(0.8);
+}
+
+.sprint_4 {
+  filter: blur(0.2rem);
+}
+
+.decoration {
+  position: absolute;
+  mix-blend-mode: hard-light;
+  top: 25px;
+  right: 25px;
+  color: var(--accent-color);
+  font-family: var(--accent-font), fantasy;
+  text-shadow: 1px 1px var(--bg-color), -1px -1px var(--bg-color);
+  opacity: 0.5;
+  font-size: 14px;
+}
+
+@supports (
+  (text-stroke: 1px var(--bg-color)) or
+    (-webkit-text-stroke: 1px var(--bg-color))
+) {
+  .decoration {
+    -webkit-text-stroke: 1px var(--bg-color);
+    text-stroke: 1px var(--bg-color);
+    text-shadow: none;
+  }
+}
+
+.text {
+  padding: 28px 25px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 27px;
+  line-height: 21px;
+}
+
+/** Reaction*/
+
+.reaction {
+  padding-inline-end: 25px;
+  padding-block-end: 25px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 4px;
+}
+
+.card__icon-button {
+  background-color: transparent;
+  border: 2px solid transparent;
+  transition: border 0.3 ease;
+  padding: 0;
+}
+
+.card__icon-button:focus {
+  outline: none;
+}
+
+.card__icon-button:focus-visible {
+  border: 2px solid var(--accent-color);
+}
+
+.like-icon {
+  display: block;
+  margin: 0;
+}
+
+.like-icon.is-liked {
+  transition: fill 0.3s linear 0.06s;
+}
+
+.main-body {
+  fill: var(--bg-color);
+  transition: fill 0.3s linear 0.05s;
+}
+
+.like-icon:hover .main-body {
+  fill: var(--countur-color);
+  transition: fill 0.3s linear;
+}
+
+.core {
+  fill: var(--bg-color);
+  transition: fill 0.3s linear;
+}
+
+.like-icon:hover .core {
+  fill: var(--countur-color);
+  transition: fill 0.3s linear 0.03s;
+}
+
+.like-icon:active .main-body {
+  fill: var(--fill-color);
+  transition: fill 0.3s linear;
+}
+
+.like-icon.is-liked .main-body {
+  fill: var(--fill-color);
+}
+
+.like-icon:active .core {
+  fill: var(--fill-color);
+  transition: fill 0.3s linear 0.03s;
+}
+
+.like-icon.is-liked .core {
+  fill: var(--fill-color);
+}
+
+.contour {
+  fill: var(--countur-color);
+}
+
+.like-icon.is-liked .contour {
+  fill: var(--fill-color);
+}
+
+.sparks {
+  fill: var(--fill-color);
+  opacity: 0;
+}
+
+.card__like-button {
+  block-size: 40px;
+  inline-size: 130px;
+  transition: box-shadow 0.3s ease;
+}
+
+.button {
+  border: 2px var(--accent-color) solid;
+  position: relative;
+  background-color: var(--bg-color);
+}
+
+.button:focus {
+  outline: none;
+}
+
+.button:focus-visible {
+  box-shadow: 2px 2px var(--accent-color);
+}
+
+.button::before {
+  content: "";
+  display: block;
+  position: absolute;
+  block-size: 100%;
+  inline-size: 100%;
+  background-color: var(--accent-color);
+  transform-origin: left;
+  transform: scaleX(0);
+  transition: transform 0.5s ease-in-out;
+  top: 0;
+  left: 0;
+}
+
+.button:hover::before {
+  transform: scaleX(1);
+}
+
+.button__text {
+  font-family: var(--accent-font), fantasy;
+  position: relative;
+  z-index: 1;
+  color: var(--bg-color);
+  mix-blend-mode: difference;
+  font-size: 14px;
+}
+
+/**Footer*/
+
+.footer {
+  padding-block-start: 52px;
+  padding-block-end: clamp(6.25rem, 6.1408rem + 0.4657vw, 6.56rem);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.footer__button {
+  display: flex;
+  gap: 8px;
+  padding-block: 15px;
+  padding-inline: 19px;
+  justify-content: center;
+  align-items: center;
+  color: var(--bg-color);
+}
+
+@media (width < 376px) {
+  .footer__button {
+    flex-direction: column;
+    padding-inline: 20px;
+  }
+}
+
+.floppy {
+  display: block;
+  position: relative;
+  z-index: 1;
+}
+
+.footer__image {
+  mix-blend-mode: difference;
+  inline-size: 21px;
+  block-size: 21px;
+}
+
+@media (width < 376px) {
+  .footer__image {
+    block-size: 28px;
+    inline-size: 28px;
+  }
+}
+
+.dialog {
+  font-family: var(--accent-font), fantasy;
+  block-size: 191px;
+  inline-size: min(353px, 100vw);
+  padding: 0;
+  border: none;
+  background-color: var(--bg-color);
+  color: var(--accent-color);
+  border: 2px solid var(--accent-color);
+}
+
+@media (width < 376px) {
+  .dialog {
+    inline-size: 341px;
+  }
+}
+
+dialog[open] {
+  display: flex;
+}
+
+.dialog_wrap {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  padding: 30px;
+}
+
+@media (width < 376px) {
+  .dialog_wrap {
+    padding-inline: 36px;
+  }
+}
+
+.dialog_text {
+  display: grid;
+  grid-template-columns: auto 2fr;
+  gap: 20px;
+  align-items: center;
+}
+
+.dialog__image {
+  block-size: 39px;
+  inline-size: 39px;
+}
+
+.dialog__title {
+  font-size: 14px;
+  text-transform: uppercase;
+  line-height: 150%;
+  font-weight: normal;
+}
+
+.dialog__button {
+  block-size: 34px;
+  inline-size: min(100%, 289px);
+  text-transform: uppercase;
+  padding: 0;
+}
+
+dialog::backdrop {
+  background-color: rgb(0 0 0 / 0.7);
 }
