@@ -23,12 +23,10 @@ button:hover {
   font-family: var(--main-font), sans-serif;
   font-size: 18px;
   font-variation-settings: "wght" var(--font-wgth);
+  background: center / cover fixed;
   background-color: var(--bg-color);
   color: var(--accent-color);
   background-image: var(--bg-image);
-  background-position: center;
-  background-size: cover;
-  background-attachment: fixed;
 }
 
 .inline-size {
@@ -51,11 +49,11 @@ button:hover {
   gap: 21px;
 }
 
-.header__title {
+.logo {
   font-size: clamp(3.0625rem, 2.7104rem + 1.5023vw, 4.0625rem);
 }
 
-.header__subtitle {
+.header__title {
   font-size: clamp(0.875rem, 0.6769rem + 0.8451vw, 1.4375rem);
   text-transform: uppercase;
 }
@@ -215,6 +213,12 @@ button:hover {
   font-size: 14px;
 }
 
+@media (width < 376px) {
+  .decoration {
+    right: 13px;
+  }
+}
+
 @supports (
   (text-stroke: 1px var(--bg-color)) or
     (-webkit-text-stroke: 1px var(--bg-color))
@@ -248,7 +252,7 @@ button:hover {
 .card__icon-button {
   background-color: transparent;
   border: 2px solid transparent;
-  transition: border 0.3 ease;
+  transition: border 0.3s ease;
   padding: 0;
 }
 
